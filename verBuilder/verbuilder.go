@@ -39,6 +39,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("filepaths: %s", filepaths)
+	fmt.Printf("instructionsPath: %s", instructionsPath)
 
 	instructPath := ""
 	for _, path := range filepaths {
