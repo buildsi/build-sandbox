@@ -82,7 +82,7 @@ func main() {
 
 	// Construct the base of all of the versions.
 	for _, version := range pkg.Versions {
-		if isAll {
+		if isAll && !currentBuild.BuildSI.Versions[version.Value.String()].VariantOnly {
 			out[version.Value.String()] = currentBuild.BuildSI.Versions["all"].Variants
 		} else {
 			out[version.Value.String()] = []string{}
