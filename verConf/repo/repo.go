@@ -19,7 +19,7 @@ type BuildData struct {
 }
 
 type Version struct {
-	VariantOnly bool     `yaml:"variant_only"`
+	VariantOnly bool     `yaml:"variants_only"`
 	Variants    []string `yaml:"variants"`
 }
 
