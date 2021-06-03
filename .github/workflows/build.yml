@@ -44,11 +44,11 @@ jobs:
         id: builder
         uses: ./verBuilder
         with:
-          containers_current: ${{ matrix.package }}
+          instructions_current: ${{ matrix.package }}
           parsers_loaded: spack
           packages_path: spack/
           packages_publickeyurl: 'http://s3.amazonaws.com/autamus-cache/build_cache/_pgp/FFEB24B0A9D81F6D5597F9900B59588C86C41BE7.pub'
-          containers_path: containers/
+          instructions_path: instructions/
 
       - name: Import Registry to Repo
         if: ${{ steps.builder.outputs.type }} == 'Spack'
