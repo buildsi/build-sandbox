@@ -1,5 +1,5 @@
 buildsi:
-  release: 7 # Increment every time you'd like to trigger a build.
+  release: 8 # Increment every time you'd like to trigger a build.
   versions:
     all:
       variants: 

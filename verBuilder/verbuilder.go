@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -39,16 +38,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("filepaths: %s", filepaths)
-	fmt.Printf("instructionsPath: %s", instructionsPath)
 
 	instructPath := ""
-	for _, path := range filepaths {
-		if strings.Contains(path, instructionsPath) && strings.HasSuffix(path, ".yaml") {
-			instructPath = path
+	for _, changed := range filepaths {
+		changed = filepath.Join(path, changed)
+		if strings.Contains(changed, instructionsPath) && strings.HasSuffix(path, ".yaml") {
+			instructPath = changed
 		}
 	}
-	fmt.Println(instructPath)
 
 	// If the container is a spack environment, find the main spec.
 	spackEnv, err := builder.ParseSpackEnv(defaultEnvPath, instructPath)
