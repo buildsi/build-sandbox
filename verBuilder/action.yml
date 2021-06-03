@@ -15,7 +15,7 @@ inputs:
   instructions_path:
     description: 'Relative location of the containers with respect to the Git Repository'
     required: false
-    default: 'instructions/'
+    default: 'instructions'
   parsers_loaded:
     description: 'Similar to Binoc which parsers to use on the repository separated by commas.'
     default: 'spack'

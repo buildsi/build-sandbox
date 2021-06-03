@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -45,6 +46,7 @@ func main() {
 			instructPath = path
 		}
 	}
+	fmt.Println(instructPath)
 
 	// If the container is a spack environment, find the main spec.
 	spackEnv, err := builder.ParseSpackEnv(defaultEnvPath, instructPath)
