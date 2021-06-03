@@ -42,8 +42,8 @@ func main() {
 	instructPath := ""
 	for _, changed := range filepaths {
 		changed = filepath.Join(path, changed)
-		if strings.Contains(changed, instructionsPath) && strings.HasSuffix(path, ".yaml") {
-			instructPath = changed
+		if strings.Contains(changed, instructionsPath) && strings.HasSuffix(changed, ".yaml") {
+			instructPath = path
 		}
 	}
 
