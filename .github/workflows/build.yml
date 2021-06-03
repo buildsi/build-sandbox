@@ -68,7 +68,6 @@ jobs:
           
       - name: Build Container for Package
         env:
-          package: ${{ matrix.package }}
           access_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           access_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
@@ -77,4 +76,4 @@ jobs:
           --secret id=aws_id,env=access_id \
           --secret id=aws_secret,env=access_secret \
           --secret id=sign_key,src=./sign_key --progress=plain \
-          -t ghcr.io/autamus/$package:latest .
+          -t sandbox:latest .
