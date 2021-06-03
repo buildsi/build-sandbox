@@ -1,2 +1,2 @@
 # build-sandbox
-Repository to generate build cache artifacts for build-si (under development)
+Build Sandbox is a Repository to generate build cache artifacts for Build SI.

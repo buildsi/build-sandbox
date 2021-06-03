@@ -1,0 +1,40 @@
+name: "Build Package Versions on Update"
+
+on:
+  push:
+    branches:
+      - main
+      - add/verConf
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  version-config:
+    name: Version Config
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.config.outputs.matrix }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+        
+      - name: Run VerConfig
+        id: config
+        uses: ./verConf
+
+  build-versions:
+    needs:
+      - version-config
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.version-config.outputs.packages) }}
+    name: Build ${{ matrix.package }}
+    steps:
+      - name: Checkout
+        run: |
+          echo "Hello From ${{ matrix.package }}"

@@ -1,0 +1,21 @@
+name: 'VerConfig'
+description: 'VerConfig determines which versions of a package to build.'
+inputs:
+  repository_path:
+    description: 'Location of the Git Repository'
+    required: false
+    default: '/github/workspace/'
+  instructions_path:
+    description: 'Relative location of the instructions with respect to the Git Repository'
+    required: false
+    default: 'instructions/'
+  parsers_loaded:
+    description: 'Similar to Binoc which parsers to use on the repository seperated by commas.'
+    default: 'spack'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'activity'
+  color: 'blue'
