@@ -47,7 +47,7 @@ jobs:
           instructions_current: ${{ matrix.package }}
           parsers_loaded: spack
           packages_path: spack/
-          packages_publickeyurl: 'http://s3.amazonaws.com/autamus-cache/build_cache/_pgp/FFEB24B0A9D81F6D5597F9900B59588C86C41BE7.pub'
+          packages_publickeyurl: 'http://s3.amazonaws.com/sandbox-cache/build_cache/_pgp/FFEB24B0A9D81F6D5597F9900B59588C86C41BE7.pub'
           instructions_path: instructions/
 
       - name: Import Registry to Repo
@@ -63,13 +63,12 @@ jobs:
       - name: Upload Dockerfile
         uses: actions/upload-artifact@v2
         with:
-          name: ${{steps.builder.outputs.container}}.Dockerfile
+          name: ${{matrix.package}}.Dockerfile
           path: Dockerfile
           
       - name: Build Container for Package
         env:
-          package: ${{ steps.builder.outputs.container }}
-          version: ${{ steps.builder.outputs.version }}
+          package: ${{ matrix.package }}
           access_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           access_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
@@ -78,4 +77,4 @@ jobs:
           --secret id=aws_id,env=access_id \
           --secret id=aws_secret,env=access_secret \
           --secret id=sign_key,src=./sign_key --progress=plain \
-          -t ghcr.io/autamus/$package:latest -t ghcr.io/autamus/$package:$version .
+          -t ghcr.io/autamus/$package:latest .
