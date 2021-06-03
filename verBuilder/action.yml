@@ -26,7 +26,7 @@ inputs:
     required: false
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/autamus/builder:latest'
+  image: 'Dockerfile'
 branding:
   icon: 'activity'
   color: 'white'
