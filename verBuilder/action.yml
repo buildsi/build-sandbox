@@ -1,0 +1,32 @@
+name: 'Builder'
+description: 'Builder Normalizes Container Build by Constructing a Dockerfile'
+inputs:
+  instructions_current:
+    description: 'Current Container to Build'
+    required: true
+  repository_path:
+    description: 'Location of the Git Repository'
+    required: false
+    default: '/github/workspace/'
+  packages_path:
+    description: 'Relative location of the packages with respect to the Git Repository'
+    required: false
+    default: 'spack'
+  instructions_path:
+    description: 'Relative location of the containers with respect to the Git Repository'
+    required: false
+    default: 'instructions/'
+  parsers_loaded:
+    description: 'Similar to Binoc which parsers to use on the repository separated by commas.'
+    default: 'spack'
+    required: false
+  packages_publickeyurl:
+    description: 'URL of the public key used to sign packages in the build cache, if applicable.'
+    default: ''
+    required: false
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/autamus/builder:latest'
+branding:
+  icon: 'activity'
+  color: 'white'

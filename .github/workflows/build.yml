@@ -36,5 +36,46 @@ jobs:
     name: Build ${{ matrix.package }}
     steps:
       - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+      
+      - name: Builder
+        id: builder
+        uses: ./verBuilder
+        with:
+          containers_current: ${{ matrix.package }}
+          parsers_loaded: spack
+          packages_path: spack/
+          packages_publickeyurl: 'http://s3.amazonaws.com/autamus-cache/build_cache/_pgp/FFEB24B0A9D81F6D5597F9900B59588C86C41BE7.pub'
+          containers_path: containers/
+
+      - name: Import Registry to Repo
+        if: ${{ steps.builder.outputs.type }} == 'Spack'
         run: |
-          echo "Hello From ${{ matrix.package }}"
+          mkdir repo
+          for file in spack/*/*; do
+            if [ -d "$file" ]; then
+                cp -r "$file/" "repo/"
+            fi
+          done
+      
+      - name: Upload Dockerfile
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{steps.builder.outputs.container}}.Dockerfile
+          path: Dockerfile
+          
+      - name: Build Container for Package
+        env:
+          package: ${{ steps.builder.outputs.container }}
+          version: ${{ steps.builder.outputs.version }}
+          access_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          access_secret: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          echo "${{secrets.SIGN_KEY}}" > sign_key
+          DOCKER_BUILDKIT=1 docker build \
+          --secret id=aws_id,env=access_id \
+          --secret id=aws_secret,env=access_secret \
+          --secret id=sign_key,src=./sign_key --progress=plain \
+          -t ghcr.io/autamus/$package:latest -t ghcr.io/autamus/$package:$version .
