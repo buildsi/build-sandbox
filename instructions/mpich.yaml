@@ -1,7 +1,5 @@
 buildsi:
   release: 1 # Increment every time you'd like to trigger a build.
-spack:
-  specs: [mpich]
   versions:
     3.1.4:
       variants:
@@ -11,3 +9,6 @@ spack:
       variants:
         - +device=ch3
         - +netmod=tcp
+
+spack:
+  specs: [mpich]
