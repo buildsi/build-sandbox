@@ -5,7 +5,9 @@ spack:
   versions:
     3.1.4:
       variants:
-        - device=ch3 netmod=tcp
+        - +device=ch3
+        - +netmod=tcp
     3.0.4:
       variants:
-        -device=ch3 netmod=tcp
+        - +device=ch3
+        - +netmod=tcp
