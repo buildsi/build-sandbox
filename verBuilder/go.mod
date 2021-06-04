@@ -4,5 +4,5 @@ go 1.16
 
 require (
 	github.com/autamus/buildconfig v0.1.3
-	github.com/autamus/builder v0.1.1
+	github.com/autamus/builder v0.1.2
 )

@@ -7,6 +7,7 @@ spack:
     compiler:
       target: x86_64
     install_missing_compilers: true
+    install_tree: /opt/software/I_think_I_can_I_think_I_can_I_think_I_can
   container:
     strip: true
     os_packages:
