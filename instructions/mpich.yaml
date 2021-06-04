@@ -1,6 +1,10 @@
 buildsi:
-  release: 1 # Increment every time you'd like to trigger a build.
+  release: 2 # Increment every time you'd like to trigger a build.
   versions:
+    3.2.1:
+      variants:
+        - ' device=ch3'
+        - ' netmod=tcp'
     3.2:
       variants:
         - ' device=ch3'
@@ -9,7 +13,15 @@ buildsi:
       variants:
         - ' device=ch3'
         - ' netmod=tcp'
+    3.1.3:
+      variants:
+        - ' device=ch3'
+        - ' netmod=tcp'
     3.1.1:
+      variants:
+        - ' device=ch3'
+        - ' netmod=tcp'
+    3.1:
       variants:
         - ' device=ch3'
         - ' netmod=tcp'
