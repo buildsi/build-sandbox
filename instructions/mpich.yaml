@@ -1,12 +1,22 @@
 buildsi:
   release: 1 # Increment every time you'd like to trigger a build.
   versions:
+    3.2:
+      variants:
+        - ' device=ch3'
+        - ' netmod=tcp'
     3.1.4:
       variants:
-        - ' device=ch3 netmod=tcp'
+        - ' device=ch3'
+        - ' netmod=tcp'
+    3.1.1:
+      variants:
+        - ' device=ch3'
+        - ' netmod=tcp'
     3.0.4:
       variants:
-        - ' device=ch3 netmod=tcp'
+        - ' device=ch3'
+        - ' netmod=tcp'
 
 spack:
   specs: [mpich]
