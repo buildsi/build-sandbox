@@ -1,5 +1,6 @@
 spack:
   view: true
+  strip: false
   packages:
     all:
       target: [x86_64]
