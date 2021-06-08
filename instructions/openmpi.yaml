@@ -1,0 +1,146 @@
+buildsi:
+  release: 1 # Increment every time you'd like to trigger a build.
+  versions:
+
+    # RPATH support in the wrappers was added in 1.7.4
+    1.7.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.7.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.7.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.7:
+      variants:
+        - ' -wrapper-rpath'
+    1.6.5:
+      variants:
+        - ' -wrapper-rpath'
+    1.6.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.6.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.6.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.6.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.6:
+      variants:
+        - ' -wrapper-rpath'
+    1.5.5:
+      variants:
+        - ' -wrapper-rpath'
+    1.5.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.5.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.5.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.5.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.5:
+      variants:
+        - ' -wrapper-rpath'
+    1.4.5:
+      variants:
+        - ' -wrapper-rpath'
+    1.4.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.4.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.4.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.4.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.3.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.3.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.3.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.3.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.3:    
+      variants:
+        - ' -wrapper-rpath'
+    1.2.9:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.8:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.7:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.6:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.5:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.2.1:   
+      variants:
+        - ' -wrapper-rpath'
+    1.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.1.5:
+      variants:
+        - ' -wrapper-rpath'
+    1.1.4:
+      variants:
+        - ' -wrapper-rpath'
+    1.1.3:
+      variants:
+        - ' -wrapper-rpath'
+    1.1.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.1.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.1: 
+      variants:
+        - ' -wrapper-rpath'
+    1.0.2:
+      variants:
+        - ' -wrapper-rpath'
+    1.0.1:
+      variants:
+        - ' -wrapper-rpath'
+    1.0:
+      variants:
+        - ' -wrapper-rpath'
+
+spack:
+  specs: [openmpi]
