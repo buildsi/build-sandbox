@@ -1,0 +1,4 @@
+buildsi:
+  release: 1 # Increment every time you'd like to trigger a build.
+spack:
+  specs: [py-black]
